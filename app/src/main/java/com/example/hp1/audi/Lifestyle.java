@@ -7,6 +7,7 @@ import android.widget.Button;
 public class Lifestyle extends AppCompatActivity {
     Button bt1;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
