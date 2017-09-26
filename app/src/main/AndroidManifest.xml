@@ -17,7 +17,8 @@
         </activity>
         <activity android:name=".Cars" />
         <activity android:name=".Lifestyle" />
-        <activity android:name=".Technology"></activity>
+        <activity android:name=".Technology" />
+        <activity android:name=".CarsInfo"></activity>
     </application>
 
 </manifest>
