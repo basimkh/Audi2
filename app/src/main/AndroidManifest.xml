@@ -16,9 +16,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Cars" />
-        <activity android:name=".Lifestyle" />
-        <activity android:name=".Technology" />
-        <activity android:name=".CarsInfo"></activity>
+        <activity android:name=".CarsInfo" />
+        <activity android:name=".Engine" />
+        <activity android:name=".Servie"></activity>
     </application>
 
 </manifest>

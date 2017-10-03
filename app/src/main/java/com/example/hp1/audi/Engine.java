@@ -3,11 +3,11 @@ package com.example.hp1.audi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Technology extends AppCompatActivity {
+public class Engine extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_technology);
+        setContentView(R.layout.activity_engine);
     }
 }
