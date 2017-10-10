@@ -1,10 +1,14 @@
 package com.example.hp1.audi;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,7 +16,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogInterface.OnClickListener {
-    Button btcars, btlife, bttechno;
+    Button btcars, btlife, bttechno , btnNotify;
+    NotificationCompat.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +29,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btcars.setOnClickListener(this);
         btlife.setOnClickListener(this);
         bttechno.setOnClickListener(this);
+        builder = new NotificationCompat.Builder(this);
+        btnNotify = (Button) findViewById(R.id.btnnoti);
+
+        //create builder object
+        builder = new NotificationCompat.Builder(this);
+
+        //customize the builder
+        builder.setSmallIcon(R.drawable.papar);
+        builder.setContentTitle("Notification Title");
+        builder.setContentText("this is the body of the notification message");
+
+        //
+        Intent bIntent = new Intent(this, MainActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, bIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
+
+        btnNotify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Add as notification
+                NotificationManager manager = (NotificationManager) getSystemService(getApplicationContext().NOTIFICATION_SERVICE);
+                manager.notify(0, builder.build());
+            }
+        });
+
+
+
+
+
+}
+    public void sendNotification(View view) {
+
+
 
     }
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu (Menu menu){
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
@@ -37,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.t1:
-                Toast.makeText(getBaseContext(), "Hi", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Send Nudes", Toast.LENGTH_LONG).show();
                 break;
 
 
@@ -92,4 +130,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+
+
 }
