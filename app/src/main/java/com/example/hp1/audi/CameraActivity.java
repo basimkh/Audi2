@@ -1,6 +1,7 @@
 package com.example.hp1.audi;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -28,6 +29,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
     Button bt1, bt2;
     ImageView Img4;
     Bitmap bitmap;
+    SharedPreferences preferences;
 
     static final int SELECT_IMAGE = 1;
     static final int TAKE_IMAGE = 0;
@@ -46,6 +48,12 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         bt1.setOnClickListener(this);
         bt2.setOnClickListener(this);
         Img4 = (ImageView) findViewById(R.id.img4);
+        preferences  = this.getSharedPreferences("profile",MODE_PRIVATE);
+        String path = preferences.getString("image",null);
+        if(path != null) {
+            bitmap = BitmapFactory.decodeFile(path);
+            Img4.setImageBitmap(bitmap);
+        }
 
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -55,6 +63,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
+        SharedPreferences.Editor editor= preferences.edit();
         //start another activirty and receive a result back in case the activity exisits.
         if (v == bt1) {
             Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -78,6 +87,9 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         } else if (requestCode == SELECT_IMAGE && resultCode == RESULT_OK) {
             Uri targetUri = data.getData();
             Toast.makeText(getApplicationContext(), targetUri.toString(), Toast.LENGTH_LONG).show();
+            SharedPreferences.Editor editor= preferences.edit();
+            editor.putString("image",targetUri.toString());
+            editor.commit();
             //textTargetUri.setText(targetUri.toString());
             Bitmap bitmap;
             try {
@@ -96,9 +108,11 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
 
 
+        SharedPreferences.Editor editor= preferences.edit();
         String filePath = root.getAbsolutePath() + "/DCIM/Camera/IMG_" + timeStamp + ".jpg";
         File file = new File(filePath);// determinig the type of the file and its place.
-
+        editor.putString("image",filePath);
+        editor.commit();
         try {
             // if gallary nit full create a file and save images
             file.createNewFile();// create new file to save image.

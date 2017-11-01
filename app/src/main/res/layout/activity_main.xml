@@ -32,11 +32,17 @@
         android:id="@+id/Service" />
 
     <Button
-        android:text="Button"
+        android:text="Notification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnnoti"
         android:onClick="sendNotification"/>
+
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCamera" />
 
 
 </LinearLayout>

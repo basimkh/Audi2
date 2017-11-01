@@ -14,13 +14,13 @@
     tools:context="com.example.hp1.audi.CameraActivity">
 
     <Button
-        android:text="Button"
+        android:text="Camera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button1" />
 
     <Button
-        android:text="Button"
+        android:text="Gallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button4" />
