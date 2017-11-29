@@ -35,6 +35,6 @@
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/File Content"
+        android:id="@+id/tvFileContent"
         android:layout_weight="0.08" />
 </LinearLayout>

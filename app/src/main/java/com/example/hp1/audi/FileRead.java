@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -36,7 +38,7 @@ public class FileRead extends AppCompatActivity implements View.OnClickListener 
 
 
         text=(TextView)findViewById(R.id.tvFileContent);
-        write = (EditText)findViewById(R.id.etText);
+       // write = (EditText)findViewById(R.id.etText);
 
         //button for reading from a file in raw folder
         btRead=(Button)findViewById(R.id.btRead);
@@ -60,7 +62,7 @@ public class FileRead extends AppCompatActivity implements View.OnClickListener 
                 temp="";
                 all="";
                 //4. open the file for reading
-                is=getResources().openRawResource(R.raw.fileread);
+                is=getResources().openRawResource(R.raw.myfile);
                 //open a channel for file reading
                 in= new InputStreamReader(is);
                 br= new BufferedReader(in);
