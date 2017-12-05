@@ -45,11 +45,19 @@ public class CarsInfo extends AppCompatActivity {
     private void updateInfo(int car) {
         if (car == 0) {
             readInfo(R.raw.a1);
-            carImage.setImageResource(R.drawable.a1);
+            carImage.setImageResource(R.drawable.a11);
         }
         if (car == 1) {
             readInfo(R.raw.tt);
             carImage.setImageResource(R.drawable.tts);
+        }
+        if (car == 2) {
+            readInfo(R.raw.a3);
+            carImage.setImageResource(R.drawable.a3);
+            if (car == 3) {
+                readInfo(R.raw.a4);
+                carImage.setImageResource(R.drawable.a4);
+
         }
     }
 
