@@ -54,11 +54,47 @@ public class CarsInfo extends AppCompatActivity {
         if (car == 2) {
             readInfo(R.raw.a3);
             carImage.setImageResource(R.drawable.a3);
+        }
             if (car == 3) {
                 readInfo(R.raw.a4);
                 carImage.setImageResource(R.drawable.a4);
+            }
+                if (car == 4) {
+                    readInfo(R.raw.a5);
+                    carImage.setImageResource(R.drawable.a5);
+                }
+                    if (car == 6) {
+                        readInfo(R.raw.a6);
+                        carImage.setImageResource(R.drawable.a6);
+                    }
+                        if (car == 7) {
+                            readInfo(R.raw.a7);
+                            carImage.setImageResource(R.drawable.a7);
+                        }
+                            if (car == 8) {
+                                readInfo(R.raw.a8);
+                                carImage.setImageResource(R.drawable.a8);
+                            }
+                                if (car == 9) {
+                                    readInfo(R.raw.q3);
+                                    carImage.setImageResource(R.drawable.q5);
+                                }
+                                    if (car == 10) {
+                                        readInfo(R.raw.q5);
+                                        carImage.setImageResource(R.drawable.q5);
+                                    }
+                                        if (car == 11) {
+                                            readInfo(R.raw.q7);
+                                            carImage.setImageResource(R.drawable.q7);
 
-        }
+
+
+
+
+
+
+
+                                        }
     }
 
     private String readInfo(int file) {

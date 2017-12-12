@@ -13,17 +13,30 @@
     android:orientation="vertical"
     tools:context="com.example.hp1.audi.CameraActivity">
 
-    <Button
-        android:text="Camera"
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button1" />
+        android:layout_height="433dp"
+        android:id="@+id/lvCars" />
 
-    <Button
-        android:text="Gallery"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button4" />
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="Gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button4"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="Camera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button1"
+            android:layout_weight="1" />
+    </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"

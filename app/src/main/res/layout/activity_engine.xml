@@ -1,15 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_engine"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
     android:background="@drawable/papar"
+    android:orientation="vertical"
     tools:context="com.example.hp1.audi.Engine">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="150dp"
+                app:srcCompat="@drawable/r8engine"
+                android:id="@+id/imageView2"
+                android:layout_gravity="center"
+                android:layout_height="150dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:text="This is the Audi R8's Engine , it is a 5.2L FSI V10 which is the biggest audi engine ." />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/rs67engine"
+                android:id="@+id/imageView3" />
+
+            <TextView
+                android:text="This is the Audi S8 , RS7 , RS6 engine , its is 4.0L Twin Turbo v8 ."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:fontFamily="sans-serif" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
+
