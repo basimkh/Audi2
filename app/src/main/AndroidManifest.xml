@@ -31,7 +31,8 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".FileRead"></activity>
+        <activity android:name=".FileRead" />
+        <activity android:name=".Profilesks"></activity>
     </application>
 
 </manifest>

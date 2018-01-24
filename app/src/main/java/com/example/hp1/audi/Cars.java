@@ -1,6 +1,7 @@
 package com.example.hp1.audi;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,8 @@ public class Cars extends AppCompatActivity implements AdapterView.OnItemClickLi
     ListView listView ;
     ArrayAdapter<String> adapter;
     ArrayList<String> cars = new ArrayList<String>();
+    SharedPreferences pref = getSharedPreferences("mypref",MODE_PRIVATE );
+    SharedPreferences.Editor editor = pref.edit();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,12 @@ public class Cars extends AppCompatActivity implements AdapterView.OnItemClickLi
         adapter=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,cars);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
+        editor.putString("email","");
+        editor.putString("password","");
+        editor.commit();
+        String em=pref.getString("email", null);
+        String pwd=pref.getString("password",null);
+
 
     }
 
