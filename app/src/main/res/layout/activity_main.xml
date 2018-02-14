@@ -17,32 +17,55 @@
         android:text="Cars"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cars" />
+        android:id="@+id/cars"
+        android:background="@drawable/roundedbutton"
+        android:padding="15dp" />
+
+    <Space
+        android:layout_width="350dp"
+        android:layout_height="25dp" />
 
     <Button
         android:text="Engine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Engine" />
+        android:id="@+id/Engine"
+        android:background="@drawable/roundedbutton"
+        android:padding="15dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
 
     <Button
         android:text="service"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Service" />
+        android:id="@+id/Service"
+        android:background="@drawable/roundedbutton"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
 
     <Button
         android:text="Notification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnnoti"
-        android:onClick="sendNotification"/>
+        android:onClick="sendNotification"
+        android:background="@drawable/roundedbutton"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
 
     <Button
-        android:text="Button"
+        android:text="Camera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnCamera" />
+        android:id="@+id/btnCamera"
+        android:background="@drawable/roundedbutton" />
 
 
 </LinearLayout>

@@ -104,32 +104,33 @@ public class DBHandling extends SQLiteOpenHelper {
         String query = "SELECT * FROM" + TABLE_QUIZ;
 
         ArrayList<Question> alc = new ArrayList<Question>();
-        SQLiteDatabase db= getWritableDatabase();
+        SQLiteDatabase db = getWritableDatabase();
         Cursor c = db.rawQuery(query, null);
         c.moveToFirst();
 
-        col[0]= c.getColumnIndex(COL_ID);
-        col[1]= c.getColumnIndex(COL_QUESTION);
-        col[2]= c.getColumnIndex(COL_ANSWER1);
-        col[3]= c.getColumnIndex(COL_ANSWER2);
-        col[4]= c.getColumnIndex(COL_ANSWER3);
-        col[5]= c.getColumnIndex(COL_ANSWER4);
-        col[6]= c.getColumnIndex(COL_CORRECTANSWER);
+        col[0] = c.getColumnIndex(COL_ID);
+        col[1] = c.getColumnIndex(COL_QUESTION);
+        col[2] = c.getColumnIndex(COL_ANSWER1);
+        col[3] = c.getColumnIndex(COL_ANSWER2);
+        col[4] = c.getColumnIndex(COL_ANSWER3);
+        col[5] = c.getColumnIndex(COL_ANSWER4);
+        col[6] = c.getColumnIndex(COL_CORRECTANSWER);
 
-        while(!c.isAfterLast()){
-            for(int i =0; i<col.length;i++){
-                r[i]=c.getString(col[i]);
+        while (!c.isAfterLast()) {
+            for (int i = 0; i < col.length; i++) {
+                r[i] = c.getString(col[i]);
 
             }
-            alc.add(new Question(Long.parseLong(r[0]),r[1], Double.parseDouble(r[2]), Integer.parseInt(r[3])));
+            alc.add(new Question(Integer.parseInt(r[0]), r[1], r[2], r[3], r[4], r[5], r[6]));
 
             c.moveToNext();
         }
 
 
-
-
         return alc;
+
+    }
+}
 
 
 

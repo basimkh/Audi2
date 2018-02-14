@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //customize the builder
         builder.setSmallIcon(R.drawable.papar);
-        builder.setContentTitle("Notification Title");
-        builder.setContentText("this is the body of the notification message");
+        builder.setContentTitle("Quizz");
+        builder.setContentText("Its time to take a picture of an Audi");
 
         //
         Intent bIntent = new Intent(this, MainActivity.class);
