@@ -74,10 +74,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+    public boolean onOptionsItemSelected(MenuItem About) {
+        switch (About.getItemId()) {
             case R.id.t1:
-                Toast.makeText(getBaseContext(), "Send Nudes", Toast.LENGTH_LONG).show();
+                   Intent j = new Intent(this, About.class);
+                startActivity(j);
                 break;
 
 
