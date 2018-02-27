@@ -32,7 +32,8 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".FileRead" />
-        <activity android:name=".About"></activity>
+        <activity android:name=".About" />
+        <activity android:name=".Quizz"></activity>
     </application>
 
 </manifest>

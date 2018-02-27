@@ -17,16 +17,14 @@ public class DBHandling extends SQLiteOpenHelper {
     private static DBHandling sInstance;
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "Audi.db";
-    public static final String TABLE_QUIZ = "quiz";
+    public static final String TABLE_SERVICE = "Serive";
 
     public static final String COL_ID = "id";
-    public static final String COL_QUESTION = "question";
-    public static final String COL_ANSWER1 = "answer1";
-    public static final String COL_ANSWER2 = "answer2";
-    public static final String COL_ANSWER3 = "answer3";
-    public static final String COL_ANSWER4 = "answer4";
+    public static final String COL_LOCATION = "Location";
+    public static final String COL_CARNUM = "Car Num";
+    public static final String COL_TIME = "Time";
+    public static final String COL_DATE = "Date";
 
-    public static final String COL_CORRECTANSWER = "correctanswer";
 
 
     public DBHandling(Context context) {
@@ -47,19 +45,17 @@ public class DBHandling extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //in case table already exist need to drop then rebuild
         //save query to creat table in database according to requirements in a string variable
-        String query = " CREATE TABLE " + TABLE_QUIZ
+        String query = " CREATE TABLE " + TABLE_SERVICE
                 + "(" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + COL_QUESTION + "TEXT, "
-                + COL_ANSWER1 + " TEXT, "
-                + COL_ANSWER2 + " TEXT, "
-                + COL_ANSWER3 + " TEXT, "
-                + COL_ANSWER4 + " TEXT, "
-                + COL_CORRECTANSWER + " TEXT "
+                + COL_LOCATION + "TEXT, "
+                + COL_CARNUM + " TEXT, "
+                + COL_TIME + " TEXT, "
+                + COL_DATE + " TEXT "
                 + ");";
         Log.d("QUERY", query);
 
         try {
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUIZ);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SERVICE);
             db.execSQL(query);
         } catch (Exception e) {
             Log.d("Couldn't add table", e.getMessage());
@@ -69,25 +65,23 @@ public class DBHandling extends SQLiteOpenHelper {
     //this method must be implemented as part of implementing the interface
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUIZ);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SERVICE);
         onCreate(db);
     }
 
     //add user to the database method
-    public void addQuestion(Question question) {
+    public void addQuestion(BookService bookService) {
         //create ContentValue containning values to be inserted/ updated in database in this table
         ContentValues values = new ContentValues();
 
-        values.put(COL_QUESTION, question.getQuestion());
-        values.put(COL_ANSWER1, question.getAnswer1());
-        values.put(COL_ANSWER2, question.getAnswer2());
-        values.put(COL_ANSWER3, question.getAnswer3());
-        values.put(COL_ANSWER4, question.getAnswer4());
-        values.put(COL_CORRECTANSWER, question.getCorrectanswer());
+        values.put(COL_LOCATION, bookService.getLocation());
+        values.put(COL_CARNUM, bookService.getCarnum());
+        values.put(COL_TIME, bookService.getTime());
+        values.put(COL_DATE, bookService.getDate());
         // create SQLiteDatabase object to enable writing/reading in database
         SQLiteDatabase db = getWritableDatabase();
-        long id = db.insert(TABLE_QUIZ, null, values);
-        question.setId(id);//update the user ID according to the auto increment..
+        long id = db.insert(TABLE_SERVICE, null, values);
+        bookService.setId(id);//update the user ID according to the auto increment..
 
         //logging for debugging purposes
         Log.d("ID ", "Question id: " + id + " added to DB");
@@ -98,30 +92,28 @@ public class DBHandling extends SQLiteOpenHelper {
     }
 
     //search data from DB
-    public ArrayList<Question> getData() {
-        String[] r = new String[6];
-        int[] col = new int[6];
-        String query = "SELECT * FROM" + TABLE_QUIZ;
+    public ArrayList<BookService> getData() {
+        String[] r = new String[5];
+        int[] col = new int[5];
+        String query = "SELECT * FROM" + TABLE_SERVICE;
 
-        ArrayList<Question> alc = new ArrayList<Question>();
+        ArrayList<BookService> alc = new ArrayList<BookService>();
         SQLiteDatabase db = getWritableDatabase();
         Cursor c = db.rawQuery(query, null);
         c.moveToFirst();
 
         col[0] = c.getColumnIndex(COL_ID);
-        col[1] = c.getColumnIndex(COL_QUESTION);
-        col[2] = c.getColumnIndex(COL_ANSWER1);
-        col[3] = c.getColumnIndex(COL_ANSWER2);
-        col[4] = c.getColumnIndex(COL_ANSWER3);
-        col[5] = c.getColumnIndex(COL_ANSWER4);
-        col[6] = c.getColumnIndex(COL_CORRECTANSWER);
+        col[1] = c.getColumnIndex(COL_LOCATION);
+        col[2] = c.getColumnIndex(COL_CARNUM);
+        col[3] = c.getColumnIndex(COL_TIME);
+        col[4] = c.getColumnIndex(COL_DATE);
 
         while (!c.isAfterLast()) {
             for (int i = 0; i < col.length; i++) {
                 r[i] = c.getString(col[i]);
 
             }
-            alc.add(new Question(Integer.parseInt(r[0]), r[1], r[2], r[3], r[4], r[5], r[6]));
+            alc.add(new BookService(Integer.parseInt(r[0]), r[1], r[2], r[3], r[4] ));
 
             c.moveToNext();
         }
