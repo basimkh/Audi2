@@ -15,15 +15,15 @@ import java.util.ArrayList;
 
 public class DBHandling extends SQLiteOpenHelper {
     private static DBHandling sInstance;
-    public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "Audi.db";
-    public static final String TABLE_SERVICE = "Serive";
+    public static final int DATABASE_VERSION = 2;
+    public static final String DATABASE_NAME = "audi.db";
+    public static final String TABLE_SERVICE = "serive";
 
     public static final String COL_ID = "id";
-    public static final String COL_LOCATION = "Location";
-    public static final String COL_CARNUM = "Car Num";
-    public static final String COL_TIME = "Time";
-    public static final String COL_DATE = "Date";
+    public static final String COL_LOCATION = "location";
+    public static final String COL_CARNUM = "carnum";
+    public static final String COL_TIME = "time";
+    public static final String COL_DATE = "date";
 
 
 
@@ -31,6 +31,8 @@ public class DBHandling extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
     }
+
+
 
     public static synchronized DBHandling getsInstance(Context context) {
         if (sInstance == null) {
@@ -47,7 +49,7 @@ public class DBHandling extends SQLiteOpenHelper {
         //save query to creat table in database according to requirements in a string variable
         String query = " CREATE TABLE " + TABLE_SERVICE
                 + "(" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + COL_LOCATION + "TEXT, "
+                + COL_LOCATION + " TEXT, "
                 + COL_CARNUM + " TEXT, "
                 + COL_TIME + " TEXT, "
                 + COL_DATE + " TEXT "
@@ -70,7 +72,7 @@ public class DBHandling extends SQLiteOpenHelper {
     }
 
     //add user to the database method
-    public void addQuestion(BookService bookService) {
+    public void insertData(BookService bookService) {
         //create ContentValue containning values to be inserted/ updated in database in this table
         ContentValues values = new ContentValues();
 
@@ -95,7 +97,7 @@ public class DBHandling extends SQLiteOpenHelper {
     public ArrayList<BookService> getData() {
         String[] r = new String[5];
         int[] col = new int[5];
-        String query = "SELECT * FROM" + TABLE_SERVICE;
+        String query = "SELECT * FROM " + TABLE_SERVICE;
 
         ArrayList<BookService> alc = new ArrayList<BookService>();
         SQLiteDatabase db = getWritableDatabase();

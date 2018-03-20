@@ -45,13 +45,17 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_camera);
         bt1 = (Button) findViewById(R.id.button4);
         bt2 = (Button) findViewById(R.id.button1);
+
         bt1.setOnClickListener(this);
         bt2.setOnClickListener(this);
+
         Img4 = (ImageView) findViewById(R.id.img4);
         preferences  = this.getSharedPreferences("profile",MODE_PRIVATE);
         String path = preferences.getString("image",null);
+        Uri myUri = Uri.parse(path);
         if(path != null) {
-            bitmap = BitmapFactory.decodeFile(path);
+           // bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(myUri));
+            //bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(myUri));
             Img4.setImageBitmap(bitmap);
         }
 
@@ -121,7 +125,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
             ostream.close();// close
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(this, "Faild to save image", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Faild to save image: "+root.getAbsolutePath(), Toast.LENGTH_SHORT).show();
         }
         return file;
     }

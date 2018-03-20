@@ -5,26 +5,24 @@
     android:id="@+id/activity_camera"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/papar"
     android:orientation="vertical"
-    tools:context="com.example.hp1.audi.CameraActivity">
+    tools:context="com.example.hp1.audi.CameraActivity"
+    android:gravity="center_vertical|center_horizontal">
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="433dp"
-        android:id="@+id/lvCars" />
+    <ImageView
+        app:srcCompat="@drawable/rs7"
+        android:id="@+id/img4"
+        android:layout_width="250dp"
+        android:layout_height="250dp" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <Button
-            android:text="Gallery"
+            android:text="Camera"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button4"
@@ -32,7 +30,7 @@
             android:background="@drawable/roundedbutton"/>
 
         <Button
-            android:text="Camera"
+            android:text="Gallery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button1"
@@ -40,9 +38,4 @@
             android:background="@drawable/roundedbutton"/>
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/rs7"
-        android:id="@+id/img4" />
 </LinearLayout>
