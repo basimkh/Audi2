@@ -33,7 +33,9 @@
 
         <activity android:name=".FileRead" />
         <activity android:name=".About" />
-        <activity android:name=".Quizz"></activity>
+        <activity android:name=".Quizz" />
+        <activity android:name=".BookedServices" />
+        <receiver android:name=".MyNotificationPublisher"/>
     </application>
 
 </manifest>

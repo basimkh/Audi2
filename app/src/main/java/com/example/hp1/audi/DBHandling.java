@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class DBHandling extends SQLiteOpenHelper {
     private static DBHandling sInstance;
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
     public static final String DATABASE_NAME = "audi.db";
     public static final String TABLE_SERVICE = "serive";
 
@@ -36,7 +36,7 @@ public class DBHandling extends SQLiteOpenHelper {
 
     public static synchronized DBHandling getsInstance(Context context) {
         if (sInstance == null) {
-            sInstance = new DBHandling(context.getApplicationContext());
+            sInstance = new DBHandling(context);
 
         }
         return sInstance;
@@ -99,7 +99,7 @@ public class DBHandling extends SQLiteOpenHelper {
         int[] col = new int[5];
         String query = "SELECT * FROM " + TABLE_SERVICE;
 
-        ArrayList<BookService> alc = new ArrayList<BookService>();
+        ArrayList<BookService> services = new ArrayList<BookService>();
         SQLiteDatabase db = getWritableDatabase();
         Cursor c = db.rawQuery(query, null);
         c.moveToFirst();
@@ -115,13 +115,12 @@ public class DBHandling extends SQLiteOpenHelper {
                 r[i] = c.getString(col[i]);
 
             }
-            alc.add(new BookService(Integer.parseInt(r[0]), r[1], r[2], r[3], r[4] ));
+            services.add(new BookService(Integer.parseInt(r[0]), r[1], r[2], r[3], r[4] ));
 
             c.moveToNext();
         }
 
-
-        return alc;
+        return services;
 
     }
 }

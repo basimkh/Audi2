@@ -67,5 +67,10 @@
         android:id="@+id/btnCamera"
         android:background="@drawable/roundedbutton" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+
 
 </LinearLayout>

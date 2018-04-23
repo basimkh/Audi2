@@ -2,6 +2,7 @@ package com.example.hp1.audi;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.icu.util.Calendar;
@@ -28,7 +29,7 @@ public class Servie extends AppCompatActivity implements View.OnClickListener, A
     private TextView mDisplayDate, DisplayTime;
     private TimePickerDialog.OnTimeSetListener TimeP;
     private DatePickerDialog.OnDateSetListener mDatesetListener;
-    Button bt1;
+    Button bt1 ;
     DBHandling myDB;
     String time,date,CarNum;
     TextView tv1;
@@ -107,6 +108,8 @@ public class Servie extends AppCompatActivity implements View.OnClickListener, A
         if(bt1==v){
             BookService bookService = new BookService("Haifa",CarNum,time,date);
             myDB.insertData(bookService);
+            Intent i = new Intent(this, BookedServices.class);
+            startActivity(i);
 
         }
     }

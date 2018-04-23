@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Audi</string>
+    <string name="title">Car Service</string>
+    <string name="content">Car Service Notification Reminder</string>
 </resources>

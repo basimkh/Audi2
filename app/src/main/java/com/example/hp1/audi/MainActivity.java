@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogInterface.OnClickListener {
-    Button btcars, btlife, bttechno , btnNotify,btnCamera;
+    Button btcars, btlife, bttechno , btnNotify,btnCamera, btCA;
     NotificationCompat.Builder builder;
 
     @Override
@@ -100,10 +100,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent i = new Intent(this, Servie.class);
             startActivity(i);
         }
-            if (v==btnCamera){
+            if (v==btnCamera) {
                 Intent i = new Intent(this, CameraActivity.class);
                 startActivity(i);
             }
+
         }
 
 
