@@ -13,7 +13,7 @@
     tools:context="com.example.hp1.audi.Servie">
 
     <Button
-        android:text="Button"
+        android:text="Save It"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button" />
@@ -38,7 +38,8 @@
             android:text="Name"
             android:ems="10"
             android:id="@+id/editText3"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
     <LinearLayout

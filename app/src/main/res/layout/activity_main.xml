@@ -49,18 +49,6 @@
         android:layout_height="25dp" />
 
     <Button
-        android:text="Notification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnnoti"
-        android:onClick="sendNotification"
-        android:background="@drawable/roundedbutton"/>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="25dp" />
-
-    <Button
         android:text="Camera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

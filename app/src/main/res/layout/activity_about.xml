@@ -11,7 +11,6 @@
     tools:context="com.example.hp1.audi.About">
 
     <TextView
-        android:text="This app was made for audi fans , there is alot of great content about the car itself and the engines that audi makes and it has a quizz to make it more entertaining .  "
         android:layout_width="wrap_content"
         android:layout_height="277dp"
         android:id="@+id/textView3"
@@ -19,4 +18,12 @@
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="30sp" />
+
+    <TextView
+        android:text="This app was made for audi fans , and for people who does not know about the audi cars... it has everything you need to know about the cars and the engines . "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_weight="1"
+        android:textSize="24sp" />
 </LinearLayout>

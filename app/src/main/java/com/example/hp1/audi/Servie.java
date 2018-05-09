@@ -1,6 +1,8 @@
 package com.example.hp1.audi;
 
 import android.app.DatePickerDialog;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,6 +11,7 @@ import android.icu.util.Calendar;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -34,6 +37,7 @@ public class Servie extends AppCompatActivity implements View.OnClickListener, A
     String time,date,CarNum;
     TextView tv1;
 
+    NotificationCompat.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,14 +110,34 @@ public class Servie extends AppCompatActivity implements View.OnClickListener, A
             dialog.show();
         }
         if(bt1==v){
+            setNotification();
             BookService bookService = new BookService("Haifa",CarNum,time,date);
             myDB.insertData(bookService);
+            NotificationManager manager = (NotificationManager) getSystemService(getApplicationContext().NOTIFICATION_SERVICE);
+            manager.notify(0, builder.build());
             Intent i = new Intent(this, BookedServices.class);
             startActivity(i);
 
         }
     }
+    public void setNotification() {
 
+        //create builder object
+        builder = new NotificationCompat.Builder(this);
+
+        //customize the builder
+        builder.setSmallIcon(R.drawable.papar);
+        builder.setContentTitle("SERVICE");
+        builder.setContentText("It was saved successfully");
+
+        //
+        Intent bIntent = new Intent(this, MainActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, bIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
+
+
+
+    }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 

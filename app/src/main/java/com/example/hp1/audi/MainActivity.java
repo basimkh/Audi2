@@ -16,8 +16,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogInterface.OnClickListener {
-    Button btcars, btlife, bttechno , btnNotify,btnCamera, btCA;
-    NotificationCompat.Builder builder;
+    Button btcars, btlife, bttechno ,btnCamera, btCA;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,44 +29,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btcars.setOnClickListener(this);
         btlife.setOnClickListener(this);
         bttechno.setOnClickListener(this);
-        builder = new NotificationCompat.Builder(this);
-        btnNotify = (Button) findViewById(R.id.btnnoti);
+
         btnCamera=(Button) findViewById(R.id.btnCamera);
         btnCamera.setOnClickListener(this);
 
-        //create builder object
-        builder = new NotificationCompat.Builder(this);
-
-        //customize the builder
-        builder.setSmallIcon(R.drawable.papar);
-        builder.setContentTitle("Quizz");
-        builder.setContentText("Its time to take a picture of an Audi");
-
-        //
-        Intent bIntent = new Intent(this, MainActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, bIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        builder.setContentIntent(contentIntent);
-
-        btnNotify.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Add as notification
-                NotificationManager manager = (NotificationManager) getSystemService(getApplicationContext().NOTIFICATION_SERVICE);
-                manager.notify(0, builder.build());
-            }
-        });
 
 
-
-
-
-}
-    public void sendNotification(View view) {
 
 
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu (Menu menu){
@@ -77,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(MenuItem About) {
         switch (About.getItemId()) {
             case R.id.t1:
-                   Intent j = new Intent(this, About.class);
+                Intent j = new Intent(this, About.class);
                 startActivity(j);
                 break;
 
@@ -100,12 +72,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent i = new Intent(this, Servie.class);
             startActivity(i);
         }
-            if (v==btnCamera) {
-                Intent i = new Intent(this, CameraActivity.class);
-                startActivity(i);
-            }
-
+        if (v==btnCamera) {
+            Intent i = new Intent(this, CameraActivity.class);
+            startActivity(i);
         }
+
+    }
 
 
 
